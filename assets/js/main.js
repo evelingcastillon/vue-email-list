@@ -12,10 +12,12 @@ const app = new Vue ({
         email9:'',
         email10:'',
 
+        emails: []
+
     },
     methods: {},
     mounted() {
-        axios
+        /* axios
         .get('https://flynn.boolean.careers/exercises/api/random/mail')
         .then(response => {
             this.email1 = response.data.response;
@@ -73,5 +75,14 @@ const app = new Vue ({
         .then(response => {
             this.email10 = response.data.response;
         })
+        */
+        for (let i = 0; i < 10; i++) {
+            axios
+            .get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then(response => {
+                this.emails.push(response.data.response);
+            })
+            
+        }
     }
 })
